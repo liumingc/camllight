@@ -21,6 +21,9 @@ short *from_state;
 short *to_state;
 
 short **transpose();
+void digraph(short **relation);
+void add_lookback_edge(int stateno, int ruleno, int gotono);
+void traverse(int i);
 
 static int infinity;
 static int maxrhs;
@@ -32,25 +35,6 @@ static short **R;
 static short *INDEX;
 static short *VERTICES;
 static int top;
-
-
-lalr()
-{
-    tokensetsize = WORDSIZE(ntokens);
-
-    set_state_table();
-    set_accessing_symbol();
-    set_shift_table();
-    set_reduction_table();
-    set_maxrhs();
-    initialize_LA();
-    set_goto_map();
-    initialize_F();
-    build_relations();
-    compute_FOLLOWS();
-    compute_lookaheads();
-}
-
 
 
 set_state_table()
@@ -429,6 +413,7 @@ build_relations()
 }
 
 
+void
 add_lookback_edge(stateno, ruleno, gotono)
 int stateno, ruleno, gotono;
 {
@@ -553,7 +538,7 @@ compute_lookaheads()
   FREE(F);
 }
 
-
+void
 digraph(relation)
 short **relation;
 {
@@ -572,7 +557,7 @@ short **relation;
   for (i = 0; i < ngotos; i++)
     {
       if (INDEX[i] == 0 && R[i])
-	traverse(i);
+        traverse(i);
     }
 
   FREE(INDEX);
@@ -580,7 +565,7 @@ short **relation;
 }
 
 
-
+void
 traverse(i)
 register int i;
 {
@@ -635,4 +620,22 @@ register int i;
 	    *fp2++ = *fp1++;
 	}
     }
+}
+
+void
+lalr()
+{
+    tokensetsize = WORDSIZE(ntokens);
+
+    set_state_table();
+    set_accessing_symbol();
+    set_shift_table();
+    set_reduction_table();
+    set_maxrhs();
+    initialize_LA();
+    set_goto_map();
+    initialize_F();
+    build_relations();
+    compute_FOLLOWS();
+    compute_lookaheads();
 }

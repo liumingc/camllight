@@ -2,7 +2,7 @@
 
 # Which C compiler to use.
 # Performance is often improved if you use gcc 2.x instead of cc.
-CC=gcc
+CC=gcc -Wno-deprecated-non-prototype -Wno-implicit-int -Wno-implicit-function-declaration
 
 # Additional options to $(CC).
 # If you are using gcc, add -fno-defer-pop.
@@ -27,20 +27,21 @@ LIBS=
 # If your cpp is too fussy, make tools/clprepro and use this:
 #CPP=../../src/tools/clprepro -Dunix
 #CPP=/lib/cpp -P -traditional -Dunix
-CPP=/usr/bin/cpp -P -traditional -Dunix
+CPP=/usr/bin/cpp -P -traditional-cpp -Dunix
 
 # The directory where public executables will be installed
-VBINDIR=/usr/local/bin
+INSTROOT=/Users/lm/.camllight
+VBINDIR=/bin
 BINDIR=${INSTROOT}${VBINDIR}
 
 # The directory where the Caml Light standard library will be installed
-LIBDIR=${INSTROOT}/usr/local/lib/caml-light
+LIBDIR=${INSTROOT}/lib/caml-light
 
 # The manual section where the manual pages will be installed
 MANEXT=1
 
 # The directory where the manual pages will be installed
-MANDIR=${INSTROOT}/usr/local/man/man$(MANEXT)
+MANDIR=${INSTROOT}/man/man$(MANEXT)
 
 # Some "make"s need this to ensure that they call the Bourne shell,
 # not the C shell. Seems harmless on most other "make"s.

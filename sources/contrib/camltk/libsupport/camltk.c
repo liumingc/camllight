@@ -8,6 +8,7 @@
 #include <alloc.h>
 #include <memory.h>
 #include <fail.h>
+#include "interp.h"
 
 /* Code part of the callback dispatcher */
 static code_t handler_code = NULL;

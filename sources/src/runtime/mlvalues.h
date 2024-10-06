@@ -59,7 +59,7 @@ typedef unsigned long uint32;
 
 /* Conversion macro names are always of the form  "to_from". */
 /* Example: Val_long as in "Val from long" or "Val of long". */
-#define Val_long(x)     (((long)(x) << 1) + 1)
+#define Val_long(x)     (((unsigned long)(x) << 1) + 1)
 #define Long_val(x)     ((x) >> 1)
 #define Max_long ((1L << (8 * sizeof(value) - 2)) - 1)
 #define Min_long (-(1L << (8 * sizeof(value) - 2)))

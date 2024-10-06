@@ -12,6 +12,7 @@
 #include <alloc.h>
 #include <memory.h>
 #include <fail.h>
+#include "interp.h"
 
 /* The Tcl interpretor */
 Tcl_Interp *cltclinterp = NULL;

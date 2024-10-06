@@ -183,12 +183,14 @@ if sh hasgot socket socketpair bind listen accept connect; then
   echo "#define HAS_SOCKETS" >> s.h
 fi
 
-if test -f /usr/include/unistd.h; then
+INC_PREFIX=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk 
+
+if test -f ${INC_PREFIX}/usr/include/unistd.h; then
   echo "unistd.h found."
   echo "#define HAS_UNISTD" >> s.h
 fi
 
-if test -f /usr/include/dirent.h; then
+if test -f ${INC_PREFIX}/usr/include/dirent.h; then
   echo "dirent.h found."
   echo "#define HAS_DIRENT" >> s.h
 fi
@@ -218,7 +220,7 @@ if sh hasgot getpriority setpriority; then
   echo "#define HAS_GETPRIORITY" >> s.h
 fi
 
-if test -f /usr/include/utime.h && sh hasgot utime; then
+if test -f ${INC_PREFIX}/usr/include/utime.h && sh hasgot utime; then
   echo "utime() found."
   echo "#define HAS_UTIME" >> s.h
 fi
@@ -263,12 +265,12 @@ if sh hasgot waitpid;  then
   echo "#define HAS_WAITPID" >> s.h
 fi
 
-if test -f /usr/include/sys/param.h && sh ./runtest getgroups.c; then
+if test -f ${INC_PREFIX}/usr/include/sys/param.h && sh ./runtest getgroups.c; then
   echo "getgroups() found."
   echo "#define HAS_GETGROUPS" >> s.h
 fi
 
-if test -f /usr/include/termios.h && 
+if test -f ${INC_PREFIX}/usr/include/termios.h && 
    sh hasgot tcgetattr tcsetattr tcsendbreak tcflush tcflow; then
   echo "POSIX termios found."
   echo "#define HAS_TERMIOS" >> s.h
@@ -290,7 +292,7 @@ if sh hasgot gethostname; then
   echo "#define HAS_GETHOSTNAME" >> s.h
 fi
 
-if test -f /usr/include/sys/utsname.h && sh hasgot uname; then
+if test -f ${INC_PREFIX}/usr/include/sys/utsname.h && sh hasgot uname; then
   echo "uname() found."
   echo "#define HAS_UNAME" >> s.h
 fi

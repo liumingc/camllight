@@ -9,6 +9,7 @@
 #include <signal.h>
 #include <string.h>
 #include <time.h>
+#include <unistd.h>
 
 #include "alloc.h"
 #include "config.h"
@@ -20,6 +21,7 @@
 #include "signals.h"
 #include "stacks.h"
 #include "sys.h"
+#include "str.h"
 #ifdef HAS_UI
 #include "ui.h"
 #endif

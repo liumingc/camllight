@@ -3,6 +3,7 @@
 #include <fcntl.h>
 #include <signal.h>
 #include <errno.h>
+#include <unistd.h>
 #include "s.h"
 
 int signalled;

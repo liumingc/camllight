@@ -74,7 +74,7 @@ extern char *mktemp();
 extern char *getenv();
 
 
-done(k)
+void done(k)
 int k;
 {
     if (action_file) { fclose(action_file); unlink(action_file_name); }
@@ -114,7 +114,7 @@ set_signals()
 #endif
 }
 
-
+void
 usage()
 {
     fprintf(stderr, "usage: %s [-vs] [-b file_prefix] filename\n",
@@ -122,6 +122,7 @@ usage()
     exit(1);
 }
 
+void
 getargs(argc, argv)
 int argc;
 char *argv[];

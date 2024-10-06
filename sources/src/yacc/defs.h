@@ -322,6 +322,28 @@ extern char *allocate();
 extern bucket *lookup();
 extern bucket *make_bucket();
 
+extern void reflexive_transitive_closure(unsigned *, int);
+// main.c
+extern void done(int);
+
+// error.c
+extern void fatal(char *msg);
+extern void no_space();
+extern void open_error(char *filename);
+
+// closure.c
+extern void set_first_derives();
+extern void finalize_closure();
+extern void closure(short *nucleus, int n);
+
+// reader.c
+extern void reader();
+
+// lr0.c
+extern void lr0();
+
+// lalr.c
+extern void lalr();
 
 /* system variables */
 

@@ -43,7 +43,7 @@ set_EFF()
 #endif
 }
 
-
+void
 set_first_derives()
 {
   register unsigned *rrow;
@@ -100,7 +100,7 @@ set_first_derives()
   FREE(EFF);
 }
 
-
+void
 closure(nucleus, n)
 short *nucleus;
 int n;
@@ -175,7 +175,7 @@ int n;
 }
 
 
-
+void
 finalize_closure()
 {
   FREE(itemset);

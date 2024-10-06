@@ -28,6 +28,7 @@ static short *shiftset;
 static short **kernel_base;
 static short **kernel_end;
 static short *kernel_items;
+void initialize_states();
 
 
 allocate_itemsets()
@@ -121,7 +122,9 @@ free_storage()
     FREE(state_set);
 }
 
-
+void save_shifts();
+void save_reductions();
+void new_itemsets();
 
 generate_states()
 {
@@ -214,7 +217,7 @@ int symbol;
 }
 
 
-
+void
 initialize_states()
 {
     register int i;
@@ -241,7 +244,7 @@ initialize_states()
     nstates = 1;
 }
 
-
+void
 new_itemsets()
 {
     register int i;
@@ -392,7 +395,7 @@ show_shifts()
     }
 }
 
-
+void
 save_shifts()
 {
     register shifts *p;
@@ -426,7 +429,7 @@ save_shifts()
 }
 
 
-
+void
 save_reductions()
 {
     register short *isp;
@@ -589,7 +592,7 @@ free_nullable()
     FREE(nullable);
 }
 
-
+void
 lr0()
 {
     set_derives();

@@ -16,6 +16,9 @@ static short *check;
 static int lowzero;
 static int high;
 
+void output_stored_text();
+void output_debug();
+void output_trailing_text();
 
 output()
 {
@@ -252,6 +255,8 @@ token_actions()
     FREE(actionrow);
 }
 
+void save_column(int symbol, int default_state);
+
 goto_actions()
 {
     register int i, j, k;
@@ -322,7 +327,7 @@ int symbol;
 }
 
 
-
+void
 save_column(symbol, default_state)
 int symbol;
 int default_state;
@@ -726,6 +731,7 @@ output_transl()
   fprintf(code_file, "    0|];;\n\n");
 }
 
+void
 output_stored_text()
 {
     register int c;
@@ -752,11 +758,12 @@ output_stored_text()
 	fprintf(out, line_format, ++outline + 1, code_file_name);
 }
 
-
+void
 output_debug()
 {
 }
 
+void
 output_trailing_text()
 {
     register int c, last;
@@ -813,7 +820,7 @@ output_trailing_text()
 	fprintf(out, line_format, ++outline + 1, code_file_name);
 }
 
-
+void
 copy_file(file, file_name)
      FILE ** file;
      char * file_name;

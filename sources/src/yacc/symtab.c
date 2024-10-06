@@ -76,7 +76,7 @@ char *name;
     return (bp);
 }
 
-
+void
 create_symbol_table()
 {
     register int i;

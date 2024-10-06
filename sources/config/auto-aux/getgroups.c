@@ -1,5 +1,6 @@
 #include <sys/types.h>
 #include <sys/param.h>
+#include <unistd.h>
 
 #ifdef NGROUPS
 

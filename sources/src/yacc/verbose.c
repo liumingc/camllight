@@ -4,6 +4,7 @@
 
 static short *null_rules;
 
+void
 verbose()
 {
     register int i;

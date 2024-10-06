@@ -45,6 +45,7 @@ uint32 getword P((struct channel *));
 unsigned getblock P((struct channel *, char *, unsigned));
 int really_getblock P((struct channel *, char *, unsigned long));
 value close_in P((struct channel *));
-
+value pos_out P((struct channel *));
+value seek_out P((struct channel *, value));
 
 #endif /* _io_ */
