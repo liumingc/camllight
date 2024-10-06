@@ -182,7 +182,7 @@ int debugger(event)
   value val;
   value * p;
 
-  if (dbg_socket == -1) return;  /* Not connected to a debugger. */
+  if (dbg_socket == -1) return 0;  /* Not connected to a debugger. */
 
   /* Report the event to the debugger */
   switch(event) {
